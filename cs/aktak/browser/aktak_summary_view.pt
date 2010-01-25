@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+    <div metal:fill-slot="main">
+    <metal:main-macro define-macro="main">
+
+        <div metal:use-macro="here/document_actions/macros/document_actions">
+            Document actions (print, sendto etc)
+        </div>
+	<h1 class="documentFirstHeading"> 
+          <tal:content content="here/Title"></tal:content>
+	</h1>
+        <tal:aktak define="aktak_dict here/@@aktak_urteka_muskiz;urteak python: aktak_dict.keys(); dummy python: urteak.sort(); dummy python: urteak.reverse()" repeat="urtea urteak">
+          <tal:condition condition="python: aktak_dict[urtea]">
+          <h2 class="urtea" tal:content="urtea"></h2>
+          <tal:barrukoak define="barrukoak python: aktak_dict[urtea].keys(); dummy python: barrukoak.sort(); dummy python: barrukoak.reverse()" repeat="barrukoa barrukoak">
+          <div class="lista">
+          <h3 tal:content="barrukoa"></h3>
+          <ul>
+          <li tal:define="aktak python: aktak_dict[urtea][barrukoa]" tal:repeat="akta aktak">
+            <img tal:attributes="src python: akta.icon()" />
+            <a tal:attributes="href string: ${akta/absolute_url}" tal:content="akta/Title"></a>
+            <span class="documentByLine">
+            <span tal:content="python: akta.Format().split('/')[1]"></span>
+            (<span tal:content="python: str(akta.size()/1024) + 'KB'"></span>)
+            </span>
+          </li>
+          </ul>
+          <div>
+          </tal:barrukoak>
+          </tal:condition>
+        </tal:aktak>
+
+    </metal:main-macro>
+    </div>
+
+</body>
+</html>
