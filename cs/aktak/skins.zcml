@@ -1,0 +1,11 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    i18n_domain="cs.aktak">
+
+  <!-- File System Directory Views registration -->
+  <cmf:registerDirectory name="cs_aktak_custom_images"/>
+  <cmf:registerDirectory name="cs_aktak_custom_templates"/>
+  <cmf:registerDirectory name="cs_aktak_styles"/>
+
+</configure>

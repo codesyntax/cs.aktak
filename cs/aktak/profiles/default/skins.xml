@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="csaktak">
+
+ <object name="cs_aktak_custom_images"
+    meta_type="Filesystem Directory View"
+    directory="cs.aktak:skins/cs_aktak_custom_images"/>
+ <object name="cs_aktak_custom_templates"
+    meta_type="Filesystem Directory View"
+    directory="cs.aktak:skins/cs_aktak_custom_templates"/>
+ <object name="cs_aktak_styles"
+    meta_type="Filesystem Directory View"
+    directory="cs.aktak:skins/cs_aktak_styles"/>
+
+ <skin-path name="csaktak" based-on="Plone Default">
+  <layer name="cs_aktak_custom_images"
+     insert-after="custom"/>
+  <layer name="cs_aktak_custom_templates"
+     insert-after="cs_aktak_custom_images"/>
+  <layer name="cs_aktak_styles"
+     insert-after="cs_aktak_custom_templates"/>
+ </skin-path>
+
+</object>
