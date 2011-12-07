@@ -8,8 +8,9 @@
     i18n_domain="cs.aktak">
 
   <include package="Products.GenericSetup"/>
-
+  <i18n:registerTranslations directory="locales" />
   <five:registerPackage package="." initialize=".initialize" />
+
   <include package=".browser" />
   <include file="profiles.zcml" />
 
