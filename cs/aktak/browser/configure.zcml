@@ -14,24 +14,19 @@
       />
 
   <browser:page
-      zcml:condition="installed cs.donedukia"
       name="aktak_summary_view"
       class=".aktak_urteka.Aktak"
-      for="cs.donedukia.content.donedukia.DonEdukia"
+      for="Products.ATContentTypes.interface.IATFolder"
       template="aktak_summary_view.pt"
       permission="zope2.View"
       />
 
-    <browser:menuItem
-        zcml:condition="installed cs.donedukia"
-        for="cs.donedukia.interfaces.IDonEdukia"
-        menu="plone_displayviews"
-        title="Minutes summary view"
-        action="@@aktak_summary_view"
-        description="Summary view of minutes"
-        />
-
-
-
+  <browser:menuItem
+      for="Products.ATContentTypes.interface.IATFolder"
+      menu="plone_displayviews"
+      title="Minutes summary view"
+      action="@@aktak_summary_view"
+      description="Summary view of minutes"
+      />
 
 </configure>
